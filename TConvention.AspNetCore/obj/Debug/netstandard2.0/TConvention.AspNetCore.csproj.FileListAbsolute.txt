@@ -1,0 +1,11 @@
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.AspNetCore\bin\Debug\netstandard2.0\TConvention.AspNetCore.deps.json
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.AspNetCore\bin\Debug\netstandard2.0\TConvention.AspNetCore.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.AspNetCore\obj\Debug\netstandard2.0\TConvention.AspNetCore.csprojAssemblyReference.cache
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.AspNetCore\obj\Debug\netstandard2.0\TConvention.AspNetCore.AssemblyInfoInputs.cache
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.AspNetCore\obj\Debug\netstandard2.0\TConvention.AspNetCore.AssemblyInfo.cs
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.AspNetCore\bin\Debug\netstandard2.0\TConvention.AspNetCore.pdb
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.AspNetCore\bin\Debug\netstandard2.0\TConvention.Core.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.AspNetCore\bin\Debug\netstandard2.0\TConvention.Core.pdb
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.AspNetCore\obj\Debug\netstandard2.0\TConvention.AspNetCore.csproj.CopyComplete
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.AspNetCore\obj\Debug\netstandard2.0\TConvention.AspNetCore.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.AspNetCore\obj\Debug\netstandard2.0\TConvention.AspNetCore.pdb

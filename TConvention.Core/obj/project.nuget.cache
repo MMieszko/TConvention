@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "TWORf8Lkvr6EPbg8F4UcCeoPdeKgVAe0sDDfxBStqdonNn2Y3Edwa7RjAIkYYgcchnCQ2anwzEf0aJPJQyfiUg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Mieszko Misztal\\source\\repos\\TConvention\\TConvention.Core\\TConvention.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mieszko Misztal\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Mieszko Misztal\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

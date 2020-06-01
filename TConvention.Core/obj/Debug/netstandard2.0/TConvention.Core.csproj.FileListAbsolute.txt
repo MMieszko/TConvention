@@ -1,0 +1,9 @@
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.Core\obj\Debug\netstandard2.0\TConvention.Core.csprojAssemblyReference.cache
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.Core\obj\Debug\netstandard2.0\TConvention.Core.AssemblyInfoInputs.cache
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.Core\obj\Debug\netstandard2.0\TConvention.Core.AssemblyInfo.cs
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.Core\bin\Debug\netstandard2.0\TConvention.Core.deps.json
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.Core\bin\Debug\netstandard2.0\TConvention.Core.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.Core\bin\Debug\netstandard2.0\TConvention.Core.pdb
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.Core\obj\Debug\netstandard2.0\TConvention.Core.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.Core\obj\Debug\netstandard2.0\TConvention.Core.pdb
+C:\Users\Mieszko Misztal\source\repos\TConvention\TConvention.Core\obj\Debug\netstandard2.0\TConvention.Core.csproj.CoreCompileInputs.cache
