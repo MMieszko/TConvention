@@ -1,26 +1,33 @@
 ﻿using System;
 using Client.Console.Asserts.Classes;
+using Client.Console.Components;
+using Client.Console.Filters.Constructors;
+using Client.Console.Filters.Methods;
 using Client.Console.Filters.Modifiers;
+using Client.Console.Filters.Properties;
 
 namespace Client.Console.Filters.Classes
 {
-    public interface IClassFilter : IFilter
+    public interface IClassFilter : IFilter<Class>
     {
-        IConcreteClassAssert<TClass> Concrete<TClass>() where TClass : class;
-        IClassFilter Derives<TClass>() where TClass : class;
+        IClassFilter Concrete<TClass>() where TClass : class;
+        IClassFilter Inherit<TClass>() where TClass : class;
         IClassFilter Implements<TInterface>() where TInterface : class;
-        IClassFilter WithModifier(ClassModifier modifier);
-        IClassFilter WithAttribute<TAttribute>(ClassModifier modifier) where TAttribute : Attribute;
-        IClassFilter WithEnds(string suffix);
-
+        IClassFilter WithAttribute<TAttribute>() where TAttribute : Attribute;
+        IClassFilter Named(Predicate<string> predicate);
+        IClassFilter StartWith(string name);
+        IClassFilter EndWith(string name);
+        IClassFilter Contain(string name);
+        IClassFilter Public();
+        IClassFilter Internal();
+        IClassFilter Sealed();
+        IClassFilter Abstract();
+        IClassFilter Partial();
         IClassFilter Ignore<T>();
         IClassFilter Ignore<T1, T2>();
         IClassFilter Ignore<T1, T2, T3>();
+        IClassFilter Ignore<T1, T2, T3, T4>();
         IClassFilter Ignore<T1, T2, T3, T4, T5>();
         IClassFilter Ignore<T1, T2, T3, T4, T5, T6>();
-        IClassFilter Ignore<T1, T2, T3, T4, T5, T6, T7>();
-        IClassFilter Ignore<T1, T2, T3, T4, T5, T6, T7, T8>();
-        IClassFilter Ignore<T1, T2, T3, T4, T5, T6, T7, T8, T9>();
-        IClassFilter Ignore<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>();
     }
 }

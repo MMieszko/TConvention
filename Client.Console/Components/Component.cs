@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace Client.Console.Components
@@ -6,7 +8,7 @@ namespace Client.Console.Components
     public class Component<T> : IComponent
         where T : MemberInfo
     {
-        protected readonly T MemberInfo;
+        public readonly T MemberInfo;
 
         public Component(T memberInfo)
         {
@@ -18,10 +20,18 @@ namespace Client.Console.Components
         {
             return MemberInfo.GetCustomAttribute<TAttribute>() != null;
         }
+
+        public bool HasAttributes(List<Type> attributes)
+        {
+            return this.MemberInfo.GetCustomAttributes().Any(x => x.GetType() == typeof(T));
+        }
     }
 
     public interface IComponent
     {
+        bool HasAttribute<TAttribute>()
+            where TAttribute : Attribute;
 
+        bool HasAttributes(List<Type> attributes);
     }
 }

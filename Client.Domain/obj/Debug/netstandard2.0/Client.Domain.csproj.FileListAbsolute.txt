@@ -1,0 +1,9 @@
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Domain\bin\Debug\netstandard2.0\Client.Domain.deps.json
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Domain\bin\Debug\netstandard2.0\Client.Domain.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Domain\bin\Debug\netstandard2.0\Client.Domain.pdb
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Domain\obj\Debug\netstandard2.0\Client.Domain.csprojAssemblyReference.cache
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Domain\obj\Debug\netstandard2.0\Client.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Domain\obj\Debug\netstandard2.0\Client.Domain.AssemblyInfoInputs.cache
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Domain\obj\Debug\netstandard2.0\Client.Domain.AssemblyInfo.cs
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Domain\obj\Debug\netstandard2.0\Client.Domain.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Domain\obj\Debug\netstandard2.0\Client.Domain.pdb

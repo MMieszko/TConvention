@@ -11,7 +11,6 @@ C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
-C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\Client.Console.exe
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\testhost.exe
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.CoreUtilities.dll
@@ -89,9 +88,7 @@ C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\Client.AspCore.dll
-C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\Client.Console.dll
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\Client.AspCore.pdb
-C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\Client.Console.pdb
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\xunit.runner.reporters.netcoreapp10.dll
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\xunit.runner.utility.netcoreapp10.dll
@@ -114,3 +111,9 @@ C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\obj\Debug\netcoreapp3.1\Client.AspCore.ConventionTests.csproj.CoreCompileInputs.cache
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\FluentAssertions.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\Core.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.AspCore.ConventionTests\bin\Debug\netcoreapp3.1\Core.pdb

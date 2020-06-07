@@ -8,6 +8,11 @@ namespace Client.Console.Extensions
 {
     public static class AssemblyExtensions
     {
+        public static T[] AsArray<T>(this T @this)
+        {
+            return new[] { @this };
+        }
+
         public static Class[] GetClasses(this Assembly @this)
         {
             return @this.GetTypes().Select(x => (Class)x).ToArray();

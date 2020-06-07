@@ -39,5 +39,9 @@ C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Console\bin\Debug\netco
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Console\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Console\bin\Debug\netcoreapp3.1\Microsoft.Net.Http.Headers.dll
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Console\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Console\obj\Debug\netcoreapp3.1\Client.Console.csproj.CoreCompileInputs.cache
 C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Console\obj\Debug\netcoreapp3.1\Client.Console.csproj.CopyComplete
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Console\obj\Debug\netcoreapp3.1\Client.Console.csproj.CoreCompileInputs.cache
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Console\bin\Debug\netcoreapp3.1\FluentAssertions.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Console\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Console\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Mieszko Misztal\source\repos\TConvention\Client.Console\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll

@@ -4,8 +4,6 @@
     {
         Public,
         Internal,
-        Protected,
-        Private,
         Sealed,
         Partial,
         Abstract

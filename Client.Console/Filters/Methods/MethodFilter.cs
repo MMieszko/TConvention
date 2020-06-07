@@ -8,7 +8,7 @@ namespace Client.Console.Filters.Methods
 {
     public class MethodFilter : IMethodsFilter
     {
-        public Method[] Methods { get; }
+        public Method[] Methods { get; private set; }
 
         public MethodFilter(Method[] classes)
         {
