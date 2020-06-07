@@ -18,6 +18,11 @@ namespace Core.Assertions
             this.Subject = instance;
         }
 
+        public virtual AndConstraint<PropertyFilterAssertions> BeReadonly(string because = "", params object[] becauseArgs)
+        {
+            return this.Be( PropertyModifier.Readonly);
+        }
+
         public virtual AndConstraint<PropertyFilterAssertions> BePublicReadonly(string because = "", params object[] becauseArgs)
         {
             return this.Be(PropertyModifier.PublicGet | PropertyModifier.Readonly);
@@ -42,6 +47,7 @@ namespace Core.Assertions
         {
             return this.Be(PropertyModifier.Abstract);
         }
+        
         public virtual AndConstraint<PropertyFilterAssertions> BeStatic(string because = "", params object[] becauseArgs)
         {
             return this.Be(PropertyModifier.Static);
@@ -60,17 +66,6 @@ namespace Core.Assertions
         public virtual AndConstraint<PropertyFilterAssertions> BePrivate(string because = "", params object[] becauseArgs)
         {
             return this.Be(PropertyModifier.PrivateGet | PropertyModifier.PrivateSet);
-        }
-
-        public virtual AndConstraint<PropertyFilterAssertions> NotExist(string because = "", params object[] becauseArgs)
-        {
-            Execute.Assertion
-                .BecauseOf(because, becauseArgs)
-                .Given(() => Subject.Components)
-                .ForCondition(x => !x.Any())
-                .FailWith($"Expected such methods not exists. {because}");
-
-            return new AndConstraint<PropertyFilterAssertions>(this);
         }
 
         public virtual AndConstraint<PropertyFilterAssertions> HaveAttribute<T>(string because = "", params object[] becauseArgs)
@@ -122,6 +117,42 @@ namespace Core.Assertions
             where T6 : Attribute
         {
             return this.HaveAttribute(new List<Type> { typeof(T1), typeof(T2), typeof(T3), typeof(T4), typeof(T5), typeof(T6) });
+        }
+
+        public AndConstraint<PropertyFilterAssertions> BeAtLeastOne(string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count >= 1, because, becauseArgs);
+        }
+
+        public AndConstraint<PropertyFilterAssertions> BeMaximumOne(string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count <= 1, because, becauseArgs);
+        }
+
+        public AndConstraint<PropertyFilterAssertions> BeMaximum(int value, string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count <= value, because, becauseArgs);
+        }
+
+        public AndConstraint<PropertyFilterAssertions> BeAtLeast(int value, string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count >= value, because, becauseArgs);
+        }
+
+        public AndConstraint<PropertyFilterAssertions> NotExist(string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count == 0, because, becauseArgs);
+        }
+
+        protected AndConstraint<PropertyFilterAssertions> HaveCount(Func<int, bool> countFunc, string because = "", params object[] becauseArgs)
+        {
+            Execute.Assertion
+                .BecauseOf(because, becauseArgs)
+                .Given(() => Subject.Components)
+                .ForCondition(x => countFunc(x.Length))
+                .FailWith($"Expected classes to have. {because}");
+
+            return new AndConstraint<PropertyFilterAssertions>(this);
         }
 
         protected AndConstraint<PropertyFilterAssertions> HaveAttribute(List<Type> attributes, string because = "", params object[] becauseArgs)

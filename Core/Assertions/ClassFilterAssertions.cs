@@ -21,7 +21,7 @@ namespace Core.Assertions
         /// <summary>
         /// Checks if classes inherit from given type
         /// </summary>
-        public virtual AndConstraint<ClassFilterAssertions> Inherit<T>(string because = "", params object[] becauseArgs)
+        public virtual AndConstraint<ClassFilterAssertions> Inherit<T>(bool includeBase = false, string because = "", params object[] becauseArgs)
             where T : class
         {
             Execute.Assertion
@@ -141,7 +141,7 @@ namespace Core.Assertions
         {
             return this.Be(ClassModifier.Partial);
         }
-
+        
         /// <summary>
         /// Checks if classes have attribute of given type
         /// </summary>
@@ -225,6 +225,42 @@ namespace Core.Assertions
             return new AndConstraint<ClassFilterAssertions>(this);
         }
 
+        public AndConstraint<ClassFilterAssertions> BeAtLeastOne(string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count >= 1, because, becauseArgs);
+        }
+
+        public AndConstraint<ClassFilterAssertions> BeMaximumOne(string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count <= 1, because, becauseArgs);
+        }
+
+        public AndConstraint<ClassFilterAssertions> BeMaximum(int value, string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count <= value, because, becauseArgs);
+        }
+
+        public AndConstraint<ClassFilterAssertions> BeAtLeast(int value, string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count >= value, because, becauseArgs);
+        }
+
+        public AndConstraint<ClassFilterAssertions> NotExist(string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count == 0, because, becauseArgs);
+        }
+
+        protected AndConstraint<ClassFilterAssertions> HaveCount(Func<int, bool> countFunc, string because = "", params object[] becauseArgs)
+        {
+            Execute.Assertion
+                .BecauseOf(because, becauseArgs)
+                .Given(() => Subject.Components)
+                .ForCondition(x => countFunc(x.Length))
+                .FailWith($"Expected classes to have. {because}");
+
+            return new AndConstraint<ClassFilterAssertions>(this);
+        }
+        
         protected AndConstraint<ClassFilterAssertions> HaveAttribute(List<Type> attributes, string because = "", params object[] becauseArgs)
         {
             Execute.Assertion

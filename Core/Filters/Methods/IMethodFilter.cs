@@ -8,6 +8,7 @@ namespace Core.Filters.Methods
     {
         IMethodsFilter WithModifier(MethodModifier modifier);
         IMethodsFilter WhichReturns<T>();
+        IMethodsFilter WhichAnyReturnType();
         IMethodsFilter WithAttribute<TAttribute>() where TAttribute : Attribute;
         IMethodsFilter WhichReturnsVoid();
         IMethodsFilter Public();

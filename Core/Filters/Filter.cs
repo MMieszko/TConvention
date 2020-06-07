@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Linq;
 using Core.Components;
 
 namespace Core.Filters
 {
-    public class Filter<TComponent, TModifier> : IFilter<TComponent>
+    public class Filter<TComponent> : IFilter<TComponent>
         where TComponent : IComponent
-        where TModifier : Enum
     {
         public TComponent[] Components { get; }
 
@@ -14,13 +12,5 @@ namespace Core.Filters
         {
             this.Components = components;
         }
-
-        protected Filter<TComponent, TModifier> FilterAttributes<TAttribute>()
-            where TAttribute : Attribute
-        {
-            return new Filter<TComponent, TModifier>(Components.Where(x => x.HasAttribute<TAttribute>()).ToArray());
-        }
-
-        
     }
 }

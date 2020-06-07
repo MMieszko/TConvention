@@ -5,7 +5,7 @@ using Core.Modifiers;
 
 namespace Core.Filters.Properties
 {
-    public class PropertyFilter : Filter<Property, PropertyModifier>, IPropertyFilter
+    public class PropertyFilter : Filter<Property>, IPropertyFilter
     {
         public PropertyFilter(Property[] props)
             :base(props)
@@ -76,7 +76,7 @@ namespace Core.Filters.Properties
         public IPropertyFilter WithAttribute<T>()
             where T : Attribute
         {
-            return (IPropertyFilter) base.FilterAttributes<T>();
+            return new PropertyFilter(Components.Where(x => x.HasAttribute<T>()).ToArray());
         }
     }
 }

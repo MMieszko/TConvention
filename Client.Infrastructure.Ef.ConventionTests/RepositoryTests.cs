@@ -26,5 +26,14 @@ namespace Client.Infrastructure.Ef.ConventionTests
 
             repositories.Fields.WithType<EfContext>().Should().BeProtected();
         }
+
+        [Fact]
+        public void RepositoriesShouldReturnOnlyEntities()
+        {
+            var repositories = Arrange.ForAssembly(typeof(EfContext).Assembly)
+                .Inherit<IRepository>();
+
+            repositories.Methods.WhichAnyReturnType().Should().ReturnsSyncOrAsync<IEntity>();
+        }
     }
 }

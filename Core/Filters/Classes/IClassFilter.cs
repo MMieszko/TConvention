@@ -1,5 +1,6 @@
 ﻿using System;
 using Core.Components;
+using Core.Filters.Constructors;
 using Core.Filters.Fields;
 using Core.Filters.Methods;
 using Core.Filters.Properties;
@@ -11,8 +12,9 @@ namespace Core.Filters.Classes
         IMethodsFilter Methods { get; }
         IFieldFilter Fields { get; }
         IPropertyFilter Properties { get; }
+        IConstructorFilter Constructors { get; }
         IClassFilter Concrete<TClass>() where TClass : class;
-        IClassFilter Inherit<TClass>() where TClass : class;
+        IClassFilter Inherit<TClass>(bool includeGivenType = false) where TClass : class;
         IClassFilter Implements<TInterface>() where TInterface : class;
         IClassFilter WithAttribute<TAttribute>() where TAttribute : Attribute;
         IClassFilter Named(Predicate<string> predicate);

@@ -10,7 +10,7 @@ namespace Client.Infrastructure.Ef
         {
             
         }
-
+        
         public Task AddAsync(User entity)
         {
             throw new System.NotImplementedException();

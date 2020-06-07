@@ -15,15 +15,18 @@ namespace Core.Components
         public static implicit operator Class(Type info) => new Class(info);
         public static explicit operator Type(Class info) => info.MemberInfo;
 
-        public bool Inherit<T>()
+        public bool Inherit<T>(bool includeGivenType = false)
             where T : class
         {
             return this.Inherit(typeof(T));
         }
 
-        public bool Inherit(Type type)
+        public bool Inherit(Type type, bool includeGivenType = false)
         {
-            return type.IsAssignableFrom(this.MemberInfo);
+            if (includeGivenType)
+                return type.IsAssignableFrom(this.MemberInfo);
+            else
+                return type.IsAssignableFrom(this.MemberInfo) && type != this.MemberInfo;
         }
 
         public bool Implements<T>()
@@ -44,10 +47,7 @@ namespace Core.Components
                 case ClassModifier.Abstract:
                     return this.MemberInfo.IsAbstract;
                 case ClassModifier.Internal:
-                    return this.MemberInfo.GetTypeInfo().IsNestedFamANDAssem;
-                case ClassModifier.Partial:
-                    //TODO:
-                    return false;
+                    return this.IsInternal(this.MemberInfo);
                 case ClassModifier.Sealed:
                     return this.MemberInfo.IsSealed;
                 case ClassModifier.Public:
@@ -56,6 +56,20 @@ namespace Core.Components
                     return false;
 
             }
+        }
+        private bool IsInternal(Type t)
+        {
+            return
+                !t.IsVisible
+                && !t.IsPublic
+                && t.IsNotPublic
+                && !t.IsNested
+                && !t.IsNestedPublic
+                && !t.IsNestedFamily
+                && !t.IsNestedPrivate
+                && !t.IsNestedAssembly
+                && !t.IsNestedFamORAssem
+                && !t.IsNestedFamANDAssem;
         }
 
         public Method[] GetMethods()

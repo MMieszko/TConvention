@@ -5,7 +5,7 @@ using Core.Modifiers;
 
 namespace Core.Filters.Fields
 {
-    public class FieldFilter : Filter<Field, FieldModifier>, IFieldFilter
+    public class FieldFilter : Filter<Field>, IFieldFilter
     {
         public FieldFilter(Field[] fields)
             : base(fields)
@@ -21,7 +21,7 @@ namespace Core.Filters.Fields
         public IFieldFilter WithAttribute<TAttribute>()
             where TAttribute : Attribute
         {
-            return (IFieldFilter)base.FilterAttributes<TAttribute>();
+            return new FieldFilter(Components.Where(x => x.HasAttribute<TAttribute>()).ToArray());
         }
 
         public virtual IFieldFilter WithType<T>()

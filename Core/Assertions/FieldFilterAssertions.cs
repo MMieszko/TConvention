@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Core.Filters.Fields;
 using Core.Modifiers;
 using FluentAssertions;
@@ -36,7 +37,43 @@ namespace Core.Assertions
             return this.Be(FieldModifier.Private);
         }
 
-        public virtual AndConstraint<FieldFilterAssertions> Be(FieldModifier modifier, string because = "", params object[] becauseArgs)
+        public AndConstraint<FieldFilterAssertions> BeAtLeastOne(string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count >= 1, because, becauseArgs);
+        }
+
+        public AndConstraint<FieldFilterAssertions> BeMaximumOne(string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count <= 1, because, becauseArgs);
+        }
+
+        public AndConstraint<FieldFilterAssertions> BeMaximum(int value, string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count <= value, because, becauseArgs);
+        }
+
+        public AndConstraint<FieldFilterAssertions> BeAtLeast(int value, string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count >= value, because, becauseArgs);
+        }
+
+        public AndConstraint<FieldFilterAssertions> NotExist(string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count == 0, because, becauseArgs);
+        }
+
+        protected AndConstraint<FieldFilterAssertions> HaveCount(Func<int, bool> countFunc, string because = "", params object[] becauseArgs)
+        {
+            Execute.Assertion
+                .BecauseOf(because, becauseArgs)
+                .Given(() => Subject.Components)
+                .ForCondition(x => countFunc(x.Length))
+                .FailWith($"Expected classes to have. {because}");
+
+            return new AndConstraint<FieldFilterAssertions>(this);
+        }
+
+        public AndConstraint<FieldFilterAssertions> Be(FieldModifier modifier, string because = "", params object[] becauseArgs)
         {
             Execute.Assertion
                 .BecauseOf(because, becauseArgs)

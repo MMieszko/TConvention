@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 using Core.Modifiers;
 
@@ -7,6 +8,7 @@ namespace Core.Components
     public class Constructor : Component<ConstructorInfo, ConstructorModifier>
     {
         public ParameterInfo[] Parameters => MemberInfo.GetParameters();
+        public bool IsParameterless => !this.Parameters.Any();
 
         public Constructor(ConstructorInfo memberInfo) : base(memberInfo)
         {
@@ -14,7 +16,7 @@ namespace Core.Components
         }
 
         public static implicit operator Constructor(ConstructorInfo info) => new Constructor(info);
-
+        
         protected override bool Is(Enum @enum)
         {
             switch (@enum)

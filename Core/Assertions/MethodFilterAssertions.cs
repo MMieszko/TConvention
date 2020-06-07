@@ -51,17 +51,6 @@ namespace Core.Assertions
             return new AndConstraint<MethodFilterAssertions>(this);
         }
 
-        public virtual AndConstraint<MethodFilterAssertions> NotExist(string because = "", params object[] becauseArgs)
-        {
-            Execute.Assertion
-                .BecauseOf(because, becauseArgs)
-                .Given(() => Subject.Components)
-                .ForCondition(x => !x.Any())
-                .FailWith($"Expected such methods not exists. {because}");
-
-            return new AndConstraint<MethodFilterAssertions>(this);
-        }
-
         public virtual AndConstraint<MethodFilterAssertions> Return<T>(string because = "", params object[] becauseArgs)
         {
             Execute.Assertion
@@ -84,12 +73,45 @@ namespace Core.Assertions
             return new AndConstraint<MethodFilterAssertions>(this);
         }
 
+        public virtual AndConstraint<MethodFilterAssertions> BeVoid(string because = "", params object[] becauseArgs)
+        {
+            Execute.Assertion
+                .BecauseOf(because, becauseArgs)
+                .Given(() => Subject.Components)
+                .ForCondition(x => x.All(method => method.IsVoid))
+                .FailWith($"Expected method to return async");
+
+            return new AndConstraint<MethodFilterAssertions>(this);
+        }
+
+        public virtual AndConstraint<MethodFilterAssertions> NotBeVoid(string because = "", params object[] becauseArgs)
+        {
+            Execute.Assertion
+                .BecauseOf(because, becauseArgs)
+                .Given(() => Subject.Components)
+                .ForCondition(x => x.All(method => !method.IsVoid))
+                .FailWith($"Expected method to return async");
+
+            return new AndConstraint<MethodFilterAssertions>(this);
+        }
+
         public virtual AndConstraint<MethodFilterAssertions> ReturnAsync<T>(string because = "", params object[] becauseArgs)
         {
             Execute.Assertion
                 .BecauseOf(because, becauseArgs)
                 .Given(() => Subject.Components)
                 .ForCondition(x => x.All(method => method.ReturnsAsync<T>()))
+                .FailWith($"Expected method to return Task of {typeof(T).Name}");
+
+            return new AndConstraint<MethodFilterAssertions>(this);
+        }
+
+        public virtual AndConstraint<MethodFilterAssertions> ReturnsSyncOrAsync<T>(string because = "", params object[] becauseArgs)
+        {
+            Execute.Assertion
+                .BecauseOf(because, becauseArgs)
+                .Given(() => Subject.Components)
+                .ForCondition(x => x.All(method => method.ReturnsSyncOrAsync<T>()))
                 .FailWith($"Expected method to return Task of {typeof(T).Name}");
 
             return new AndConstraint<MethodFilterAssertions>(this);
@@ -144,6 +166,42 @@ namespace Core.Assertions
             where T6 : Attribute
         {
             return this.HaveAttribute(new List<Type> { typeof(T1), typeof(T2), typeof(T3), typeof(T4), typeof(T5), typeof(T6) });
+        }
+
+        public AndConstraint<MethodFilterAssertions> BeAtLeastOne(string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count >= 1, because, becauseArgs);
+        }
+
+        public AndConstraint<MethodFilterAssertions> BeMaximumOne(string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count <= 1, because, becauseArgs);
+        }
+
+        public AndConstraint<MethodFilterAssertions> BeMaximum(int value, string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count <= value, because, becauseArgs);
+        }
+
+        public AndConstraint<MethodFilterAssertions> BeAtLeast(int value, string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count >= value, because, becauseArgs);
+        }
+
+        public AndConstraint<MethodFilterAssertions> NotExist(string because = "", params object[] becauseArgs)
+        {
+            return this.HaveCount(count => count == 0, because, becauseArgs);
+        }
+
+        protected AndConstraint<MethodFilterAssertions> HaveCount(Func<int, bool> countFunc, string because = "", params object[] becauseArgs)
+        {
+            Execute.Assertion
+                .BecauseOf(because, becauseArgs)
+                .Given(() => Subject.Components)
+                .ForCondition(x => countFunc(x.Length))
+                .FailWith($"Expected classes to have. {because}");
+
+            return new AndConstraint<MethodFilterAssertions>(this);
         }
 
         protected AndConstraint<MethodFilterAssertions> HaveAttribute(List<Type> attributes, string because = "", params object[] becauseArgs)

@@ -9,7 +9,9 @@ namespace Client.Application.ConventionTests
         [Fact]
         public void ControllerShouldInheritBase()
         {
-            var controller = Arrange.ForAssembly(typeof(ApplicationController).Assembly)
+            var controller = Arrange
+                .ForAssembly(typeof(ApplicationController).Assembly)
+                .Ignore<ApplicationController>()
                 .EndWith("Controller");
 
             controller.Should().Inherit<ApplicationController>();

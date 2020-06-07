@@ -18,6 +18,16 @@ namespace Core.Components
 
         public static implicit operator Method(MethodInfo info) => new Method(info);
 
+        public bool ReturnAnything()
+        {
+            if (this.IsVoid)
+                return false;
+            if (this.ReturnType == typeof(Task))
+                return false;
+
+            return true;
+        }
+
         public bool ReturnsAsync()
         {
             return typeof(Task).IsAssignableFrom(ReturnType);
@@ -42,6 +52,17 @@ namespace Core.Components
         public bool Returns<T>()
         {
             return typeof(T).IsAssignableFrom(ReturnType);
+        }
+
+        public bool ReturnsSyncOrAsync<T>()
+        {
+            if (this.Returns<T>())
+                return true;
+
+            if (this.ReturnsAsync<T>())
+                return true;
+
+            return false;
         }
 
         protected override bool Is(Enum @enum)

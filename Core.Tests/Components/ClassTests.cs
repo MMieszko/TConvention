@@ -84,21 +84,6 @@ namespace Core.Tests.Components
             result.Should().Be(expected);
         }
 
-        [Theory]
-        [InlineData(ClassModifier.Public, true)]
-        [InlineData(ClassModifier.Partial, true)]
-        [InlineData(ClassModifier.Abstract, false)]
-        [InlineData(ClassModifier.Internal, false)]
-        [InlineData(ClassModifier.Sealed, false)]
-        public void Is_Partial(ClassModifier modifier, bool expected)
-        {
-            var @class = new Class(typeof(PublicPartialClass));
-
-            var result = @class.Is(modifier);
-
-            result.Should().Be(expected);
-        }
-
         [Fact]
         public void Inherit()
         {

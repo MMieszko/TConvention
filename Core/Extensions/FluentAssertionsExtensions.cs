@@ -1,5 +1,6 @@
 ﻿using Core.Assertions;
 using Core.Filters.Classes;
+using Core.Filters.Constructors;
 using Core.Filters.Fields;
 using Core.Filters.Methods;
 using Core.Filters.Properties;
@@ -26,6 +27,11 @@ namespace Core.Extensions
         public static FieldFilterAssertions Should(this IFieldFilter instance)
         {
             return new FieldFilterAssertions(instance);
+        }
+
+        public static ConstructorFilterAssertions Should(this IConstructorFilter instance)
+        {
+            return new ConstructorFilterAssertions(instance);
         }
     }
 }

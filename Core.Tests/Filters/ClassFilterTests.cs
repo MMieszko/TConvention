@@ -51,7 +51,7 @@ namespace Core.Tests.Filters
 
             filter = filter.Inherit<PublicInheritFromStandaloneClass>();
 
-            filter.Components.Should().HaveCount(1);
+            filter.Components.Should().HaveCount(0);
         }
 
         [Fact]

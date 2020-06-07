@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Core.Components;
+using Core.Filters.Constructors;
 using Core.Filters.Fields;
 using Core.Filters.Methods;
 using Core.Filters.Properties;
@@ -8,7 +9,7 @@ using Core.Modifiers;
 
 namespace Core.Filters.Classes
 {
-    public class ClassFilter : Filter<Class, ClassModifier>, IClassFilter
+    public class ClassFilter : Filter<Class>, IClassFilter
     {
         public ClassFilter(Class[] classes)
             : base(classes)
@@ -19,6 +20,7 @@ namespace Core.Filters.Classes
         public IMethodsFilter Methods => new MethodFilter(Components.SelectMany(x => x.GetMethods()).ToArray());
         public IFieldFilter Fields => new FieldFilter(Components.SelectMany(x => x.GetFields()).ToArray());
         public IPropertyFilter Properties => new PropertyFilter(Components.SelectMany(x => x.GetProperties()).ToArray());
+        public IConstructorFilter Constructors => new ConstructorFilter(Components.SelectMany(x => x.GetConstructors()).ToArray());
 
         public IClassFilter Concrete<TClass>()
             where TClass : class
@@ -26,10 +28,10 @@ namespace Core.Filters.Classes
             return new ClassFilter(Components.Where(x => x.MemberInfo == typeof(TClass)).ToArray());
         }
 
-        public IClassFilter Inherit<TClass>()
+        public IClassFilter Inherit<TClass>(bool includeGivenType = false)
             where TClass : class
         {
-            return new ClassFilter(Components.Where(x => x.Inherit<TClass>()).ToArray());
+            return new ClassFilter(Components.Where(x => x.Inherit<TClass>(includeGivenType)).ToArray());
         }
 
         public IClassFilter Implements<TInterface>() where TInterface : class
@@ -40,7 +42,7 @@ namespace Core.Filters.Classes
         public IClassFilter WithAttribute<TAttribute>()
             where TAttribute : Attribute
         {
-            return (ClassFilter)base.FilterAttributes<TAttribute>();
+            return new ClassFilter(Components.Where(x => x.HasAttribute<TAttribute>()).ToArray());
         }
 
         public IClassFilter StartWith(string name)
@@ -89,7 +91,7 @@ namespace Core.Filters.Classes
         }
 
         public IClassFilter Ignore<T>()
-         where T : class
+            where T : class
         {
             return this.Ignore(typeof(T));
         }
@@ -108,7 +110,7 @@ namespace Core.Filters.Classes
         {
             return this.Ignore(typeof(T1), typeof(T2), typeof(T3));
         }
-
+        
         public IClassFilter Ignore<T1, T2, T3, T4>()
             where T1 : class
             where T2 : class
@@ -117,7 +119,7 @@ namespace Core.Filters.Classes
         {
             return this.Ignore(typeof(T1), typeof(T2), typeof(T3), typeof(T4));
         }
-
+       
         public IClassFilter Ignore<T1, T2, T3, T4, T5>()
             where T1 : class
             where T2 : class
@@ -128,7 +130,7 @@ namespace Core.Filters.Classes
         {
             return this.Ignore(typeof(T1), typeof(T2), typeof(T3), typeof(T4), typeof(T5));
         }
-
+     
         public IClassFilter Ignore<T1, T2, T3, T4, T5, T6>()
             where T1 : class
             where T2 : class

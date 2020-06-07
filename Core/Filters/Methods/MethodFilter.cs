@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Core.Components;
 using Core.Modifiers;
 
 namespace Core.Filters.Methods
 {
-    public class MethodFilter : Filter<Method, MethodModifier>, IMethodsFilter
+    public class MethodFilter : Filter<Method>, IMethodsFilter
     {
         public MethodFilter(Method[] methods)
             :base(methods)
         {
 
         }
-
         public IMethodsFilter WithModifier(MethodModifier modifier)
         {
             return new MethodFilter(this.Components.Where(x => x.Is(modifier)).ToArray());
@@ -23,10 +23,15 @@ namespace Core.Filters.Methods
             return new MethodFilter(this.Components.Where(x => x.ReturnType == typeof(T)).ToArray());
         }
 
+        public IMethodsFilter WhichAnyReturnType()
+        {
+            return new MethodFilter(this.Components.Where(x => x.ReturnAnything()).ToArray());
+        }
+
         public IMethodsFilter WithAttribute<TAttribute>()
             where TAttribute : Attribute
         {
-            return (IMethodsFilter) base.FilterAttributes<TAttribute>();
+            return new MethodFilter(Components.Where(x => x.HasAttribute<TAttribute>()).ToArray());
         }
 
         public IMethodsFilter WhichReturnsVoid()

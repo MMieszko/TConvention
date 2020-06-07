@@ -33,7 +33,7 @@ namespace Client.AspCore.ConventionTests
                 .Public()
                 .EndWith("Controller");
 
-            controllers.Should().Inherit<ApiController>("All controllers must inherit base");
+            controllers.Should().Inherit<ApiController>(false, "All controllers must inherit base");
 
             controllers.Methods.Should().BePublic("Controller contains only public methods");
             controllers.Methods.Should().ReturnAsync<IResponse>();

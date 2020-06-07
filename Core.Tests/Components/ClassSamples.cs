@@ -101,7 +101,18 @@ namespace Core.Tests.Components
 
     public class TestAttribute : Attribute
     {
+        public void M1() { }
+        public Task M2() { return Task.CompletedTask; }
 
+        public Task<int> M3()
+        {
+            return Task.FromResult(1);
+        }
+
+        private string M4()
+        {
+            return "4";
+        }
     }
 
     [TestAttribute]
