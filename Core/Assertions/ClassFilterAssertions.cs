@@ -135,14 +135,6 @@ namespace Core.Assertions
         }
 
         /// <summary>
-        /// Checks if classes are partial
-        /// </summary>
-        public virtual AndConstraint<ClassFilterAssertions> BePartial(string because = "", params object[] becauseArgs)
-        {
-            return this.Be(ClassModifier.Partial);
-        }
-        
-        /// <summary>
         /// Checks if classes have attribute of given type
         /// </summary>
         public virtual AndConstraint<ClassFilterAssertions> HaveAttribute<T>(string because = "", params object[] becauseArgs)
